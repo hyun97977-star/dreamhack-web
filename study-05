@@ -1,0 +1,40 @@
+import turtle
+import math
+import random
+import time
+
+screen = turtle.Screen()
+screen.bgcolor("black")
+screen.title("Python Turtle Heart")
+screen.tracer(0)
+
+t = turtle.Turtle()
+t.hideturtle()
+t.pensize(1)
+
+colors = ["red", "blue", "lime", "yellow", "cyan", "magenta", "orange", "pink"]
+
+for i in range(120):
+    t.penup()
+    t.goto(0, 40)
+
+    angle = i * (math.pi * 2) / 120
+    x = 16 * (math.sin(angle) ** 3) * 15
+    y = (13 * math.cos(angle) - 5 * math.cos(2 * angle) - 2 * math.cos(3 * angle) - math.cos(4 * angle)) * 15
+    
+    c = random.choice(colors)
+    t.color(c)
+    t.pendown()
+    t.goto(x, y)
+    
+    for _ in range(8):
+        t.forward(6)
+        t.backward(6)
+        t.right(45)
+
+    screen.update()
+    time.sleep(0.04)
+
+turtle.done()
+이게 sns에 있어서 똑같이 실행했더니 랜덤 색깔로 하트가 그려지는게 너무나 신기했다. 파이썬과 리눅스를 배우고는 있지만 보니 import random이 색 랜덤이고 screen.bgcolor("black") 가 배경화면 background가 검정 이라는 거 아닐까 
+하고 생각했다 colors = ["red", "blue", "lime", "yellow", "cyan", "magenta", "orange", "pink"] 여기는 빨강, 파랑 라임색 등등인거 같은데 나머지는 뭔지 잘 모르겠다. 더 열심히 공부해야겠다.
